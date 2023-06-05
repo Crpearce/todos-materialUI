@@ -5,6 +5,7 @@ import Deck from './components/deck/deck.component'
 import axios from 'axios'
 
 import './App.css'
+import Navigation from './components/navigation/navigation.component'
 
 const App = () => {
   const [allQuestions, setAllQuestions] = useState([])
@@ -26,7 +27,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <h1>Colby's Trivia Game</h1>
+      <Navigation />
       <Deck allQuestions={allQuestions} />
     </div>
   )
