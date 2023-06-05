@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Card, FormControl } from '@mui/material'
+import Deck from './components/deck/deck.component'
 
 import axios from 'axios'
 
@@ -24,18 +24,10 @@ const App = () => {
     getTriviaData()
   }, [])
 
-  console.log(allQuestions)
-
   return (
     <div className='App'>
       <h1>Colby's Trivia Game</h1>
-      {allQuestions.map(question => {
-        return (
-          <Card>
-            <h2>{question.question.text}</h2>
-          </Card>
-        )
-      })}
+      <Deck allQuestions={allQuestions} />
     </div>
   )
 }
