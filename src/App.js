@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
+import Navigation from './components/navigation/navigation.component'
 import Deck from './components/deck/deck.component'
 
 import axios from 'axios'
 
 import './App.css'
-import Navigation from './components/navigation/navigation.component'
 
 const App = () => {
   const [allQuestions, setAllQuestions] = useState([])
