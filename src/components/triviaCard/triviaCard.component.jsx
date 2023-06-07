@@ -1,4 +1,4 @@
-import { Card, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
+import { Button, Card, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 
 const TriviaCard = ({ question, correctAnswer, incorrectAnswers }) => {
   const allChoices = [correctAnswer, ...incorrectAnswers]
@@ -6,10 +6,9 @@ const TriviaCard = ({ question, correctAnswer, incorrectAnswers }) => {
   return (
     <Card>
       <h1>{question.text}</h1>
-      <FormControl>
+      <FormControl >
         <RadioGroup
           aria-labelledby='demo-radio-buttons-group-label'
-          defaultValue='female'
           name='radio-buttons-group'
         >
           {allChoices.map(choice => {
@@ -18,6 +17,7 @@ const TriviaCard = ({ question, correctAnswer, incorrectAnswers }) => {
             )
           })}
         </RadioGroup>
+        <Button variant="contained" size='small'style={{maxWidth: '100px'}} >Submit</Button>
       </FormControl>
     </Card>
   )
