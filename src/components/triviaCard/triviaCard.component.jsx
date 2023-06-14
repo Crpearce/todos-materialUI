@@ -11,7 +11,7 @@ const TriviaCard = ({ question, correctAnswer, incorrectAnswers }) => {
   const allChoices = [correctAnswer, ...incorrectAnswers]
 
   return (
-    <Card>
+    <Card >
       <h1>{question.text}</h1>
       <FormControl>
         <RadioGroup
@@ -21,6 +21,7 @@ const TriviaCard = ({ question, correctAnswer, incorrectAnswers }) => {
           {allChoices.map((choice) => {
             return (
               <FormControlLabel
+                key={choice}
                 value={choice}
                 control={<Radio />}
                 label={choice}
