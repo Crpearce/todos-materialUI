@@ -9,7 +9,7 @@ import {
 
 const TriviaCard = ({ question, correctAnswer, incorrectAnswers }) => {
   const allChoices = [correctAnswer, ...incorrectAnswers]
-
+  console.log(question)
   return (
     <Card >
       <h1>{question.text}</h1>
