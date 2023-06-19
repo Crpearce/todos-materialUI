@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+
 import {
   Button,
   Card,
@@ -7,12 +9,32 @@ import {
   RadioGroup,
 } from '@mui/material'
 
-const TriviaCard = ({ question, correctAnswer, incorrectAnswers }) => {
+const TriviaCard = ({
+  question,
+  correctAnswer,
+  incorrectAnswers,
+  length,
+  deleteCard,
+}) => {
+  const [shuffledChoices, setShuffledChoices] = useState([])
+  const [selectedAnswer, setSelectedAnswer] = useState()
+  const [userScore, setUserScore] = useState(0)
   const allChoices = [correctAnswer, ...incorrectAnswers]
-  const shuffledChoices = allChoices.sort(() => (Math.random() > .5) ? 1 : -1)
+
+  useEffect(() => {
+    setShuffledChoices(allChoices.sort(() => (Math.random() > 0.5 ? 1 : -1)))
+  }, [])
 
   const onChangeValue = (e) => {
-    console.log(e.target.value)
+    setSelectedAnswer(e.target.value)
+    console.log(selectedAnswer)
+    console.log(correctAnswer)
+  }
+
+  const submitAnswer = () => {
+    ;(selectedAnswer === correctAnswer && selectedAnswer !== '') || undefined
+      ? setUserScore(userScore + 1)
+      : setUserScore(userScore)
   }
 
   return (
@@ -34,11 +56,17 @@ const TriviaCard = ({ question, correctAnswer, incorrectAnswers }) => {
               />
             )
           })}
+          <Button
+            variant='contained'
+            size='small'
+            style={{ maxWidth: '100px' }}
+            onClick={submitAnswer}
+          >
+            Submit
+          </Button>
         </RadioGroup>
-        <Button variant='contained' size='small' style={{ maxWidth: '100px' }}>
-          Submit
-        </Button>
       </FormControl>
+      <h3>{`${userScore} /${length}`}</h3>
     </Card>
   )
 }

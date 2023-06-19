@@ -13,8 +13,9 @@ const Deck = ({ allQuestions }) => {
     setRandomCard(allQuestions[randomNumber])
   }, [allQuestions])
 
-  // need to now capture a users selected answer, and make sure that it is a match with the correct answer
-  // all answers need to be randomized, think of a function to change the order of each potential answer so they arent all the same
+  const deleteCard = () => {
+
+  }
 
   return (
     <div className='deck-container'>
@@ -24,6 +25,8 @@ const Deck = ({ allQuestions }) => {
           question={randomCard.question}
           correctAnswer={randomCard.correctAnswer}
           incorrectAnswers={randomCard.incorrectAnswers}
+          length={allQuestions.length}
+          deleteCard={deleteCard}
         />
       )}
     </div>
