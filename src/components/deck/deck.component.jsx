@@ -7,19 +7,17 @@ import './deck.styles.css'
 const Deck = ({ allQuestions }) => {
   const [randomNumber, setRandomNumber] = useState()
   const [randomCard, setRandomCard] = useState()
-  const [deckLength, setDeckLength] = useState(11) 
+  const [deckLength, setDeckLength] = useState(10) 
   const [userScore, setUserScore] = useState(0)
 
   useEffect(() => {
     setRandomNumber(Math.floor(Math.random() * deckLength))
     setRandomCard(allQuestions[randomNumber])
-    console.log(randomNumber)
-    console.log(deckLength)
-  }, [allQuestions])
+  }, [allQuestions, deckLength, randomNumber])
 
   const deleteCard = () => {
     setDeckLength(deckLength - 1)
-    allQuestions.splice(randomNumber - 1, 1)
+    allQuestions.splice(randomNumber, 1)
   }
 
   console.log(allQuestions)
