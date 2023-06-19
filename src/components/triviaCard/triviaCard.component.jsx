@@ -27,14 +27,13 @@ const TriviaCard = ({
 
   const onChangeValue = (e) => {
     setSelectedAnswer(e.target.value)
-    console.log(selectedAnswer)
-    console.log(correctAnswer)
   }
 
   const submitAnswer = () => {
-    ;(selectedAnswer === correctAnswer && selectedAnswer !== '') || undefined
+    (selectedAnswer === correctAnswer && selectedAnswer !== '') || undefined
       ? setUserScore(userScore + 1)
       : setUserScore(userScore)
+      deleteCard()
   }
 
   return (
@@ -66,7 +65,7 @@ const TriviaCard = ({
           </Button>
         </RadioGroup>
       </FormControl>
-      <h3>{`${userScore} /${length}`}</h3>
+      <h3>{`${userScore} /10`}</h3>
     </Card>
   )
 }
