@@ -17,7 +17,7 @@ const Deck = ({ allQuestions }) => {
   // all answers need to be randomized, think of a function to change the order of each potential answer so they arent all the same
 
   return (
-    <div>
+    <div className='deck-container'>
       {randomCard && (
         <TriviaCard
           key={randomCard.id}
