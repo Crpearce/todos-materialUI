@@ -13,24 +13,24 @@ const TriviaCard = ({
   question,
   correctAnswer,
   incorrectAnswers,
-  length,
   deleteCard,
+  setUserScore,
+  userScore
 }) => {
   const [shuffledChoices, setShuffledChoices] = useState([])
   const [selectedAnswer, setSelectedAnswer] = useState()
-  const [userScore, setUserScore] = useState(0)
   const allChoices = [correctAnswer, ...incorrectAnswers]
 
   useEffect(() => {
     setShuffledChoices(allChoices.sort(() => (Math.random() > 0.5 ? 1 : -1)))
-  }, [])
+  },[])
 
   const onChangeValue = (e) => {
     setSelectedAnswer(e.target.value)
   }
 
   const submitAnswer = () => {
-    (selectedAnswer === correctAnswer && selectedAnswer !== '') || undefined
+    (selectedAnswer === correctAnswer && selectedAnswer !== '' && selectedAnswer !== undefined)
       ? setUserScore(userScore + 1)
       : setUserScore(userScore)
       deleteCard()
