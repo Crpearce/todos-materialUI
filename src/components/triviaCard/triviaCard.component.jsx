@@ -37,7 +37,7 @@ const TriviaCard = ({
   }
 
   return (
-    <Card>
+    <Card variant="outlined">
       <h1>{question.text}</h1>
       <FormControl>
         <RadioGroup

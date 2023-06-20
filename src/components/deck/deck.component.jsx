@@ -7,7 +7,7 @@ import './deck.styles.css'
 const Deck = ({ allQuestions }) => {
   const [randomNumber, setRandomNumber] = useState()
   const [randomCard, setRandomCard] = useState()
-  const [deckLength, setDeckLength] = useState(10) 
+  const [deckLength, setDeckLength] = useState(10)
   const [userScore, setUserScore] = useState(0)
 
   useEffect(() => {
@@ -19,8 +19,6 @@ const Deck = ({ allQuestions }) => {
     setDeckLength(deckLength - 1)
     allQuestions.splice(randomNumber, 1)
   }
-
-  console.log(allQuestions)
 
   return (
     <div className='deck-container'>

@@ -4,8 +4,8 @@ const Navigation = () => {
   return (
     <AppBar component='nav'>
       <Typography
-        variant='h2'
-        component='h2'
+        variant='nav'
+        component='nav'
       >
         Colbys Trivia Game
       </Typography>
